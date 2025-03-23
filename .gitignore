@@ -1,0 +1,7 @@
+# Logging
+**/*logs/
+
+# Client
+**/*node_modules/
+**/*vite/
+**/*dist/
