@@ -1,4 +1,4 @@
-// src/pages/home.tsx
+// home.tsx
 import { FC } from "react"
 
 export const Home: FC = () => {

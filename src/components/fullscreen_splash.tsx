@@ -1,50 +1,59 @@
-// src/components/fullscreen_splash.tsx
+// fullscreen_splash.tsx
 import { useEffect, useState } from "react"
 import { cn } from "../lib/utils"
 
 interface FullScreenSplashProps {
-    /** URL of the splash image */
     splashImage: string
-    /** Time (ms) to wait before starting fade-out (default: 2000) */
     duration?: number
+    onFinish?: () => void
 }
 
-/**
- * Displays a full-screen background image, then fades out and unmounts.
- */
-export const FullScreenSplash: React.FC<FullScreenSplashProps> = ({ splashImage, duration = 2000 }) => {
-    const [fading, setFading] = useState(false) // triggers fade
-    const [visible, setVisible] = useState(true) // controls DOM presence
+export const FullScreenSplash: React.FC<FullScreenSplashProps> = ({ splashImage, duration = 1000, onFinish }) => {
+    const [fading, setFading] = useState(false)
+    const [visible, setVisible] = useState(true)
 
     useEffect(() => {
-        // Start fade-out after `duration`
-        const fadeTimer = setTimeout(() => {
-            setFading(true)
-        }, duration)
-
-        // Remove from DOM after the fade transition ends (1s here)
-        const removalTimer = setTimeout(() => {
-            setVisible(false)
-        }, duration + 1000)
-
-        return () => {
-            clearTimeout(fadeTimer)
-            clearTimeout(removalTimer)
-        }
+        // Set a timeout that triggers fading after `duration`
+        const startFadeTimer = setTimeout(() => setFading(true), duration)
+        return () => clearTimeout(startFadeTimer)
     }, [duration])
 
-    // If not visible anymore, render nothing
-    if (!visible) {
-        return null
+    // This event fires when the CSS transition ends.
+    // We wait for the opacity transition to complete before removing the element.
+    const handleTransitionEnd = (event: React.TransitionEvent<HTMLDivElement>) => {
+        // Make sure it's the opacity transition.
+        // Move the onFinish inside the if statement to wait until the fade is complete.
+        onFinish?.()
+        if (event.propertyName === "opacity" && fading) {
+            setVisible(false)
+        }
     }
+
+    // Immediately trigger the fade-out.
+    const handleSkip = () => setFading(true)
+
+    if (!visible) return null
 
     return (
         <div
-            className={cn("fixed inset-0 z-50 bg-cover bg-center transition-opacity duration-1000", {
+            onTransitionEnd={handleTransitionEnd}
+            className={cn("fixed inset-0 z-50 bg-cover bg-center transition-opacity duration-1000 p-4", {
+                // When fading is true, the opacity goes to 0, otherwise it remains at 100.
                 "opacity-0": fading,
                 "opacity-100": !fading,
             })}
             style={{ backgroundImage: `url(${splashImage})` }}
-        />
+        >
+            {visible && !fading && (
+                <button
+                    onClick={handleSkip}
+                    className={cn(
+                        "font-mono bg-gray-800 text-white px-3 py-2 rounded shadow transition-colors duration-200 hover:bg-gray-700 focus:outline-red-700",
+                    )}
+                >
+                    SKIP &gt;
+                </button>
+            )}
+        </div>
     )
 }

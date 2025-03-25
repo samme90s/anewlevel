@@ -1,4 +1,4 @@
-// src/pages/contact.tsx
+// contact.tsx
 import { FC } from "react"
 
 export const About: FC = () => {
