@@ -13,9 +13,9 @@ export const FullScreenSplash: React.FC<FullScreenSplashProps> = ({ splashImage,
     const [visible, setVisible] = useState(true)
 
     useEffect(() => {
-        // Set a timeout that triggers fading after `duration`
-        const startFadeTimer = setTimeout(() => setFading(true), duration)
-        return () => clearTimeout(startFadeTimer)
+        // Set a timeout that triggers fading after duration
+        const timeout = setTimeout(() => setFading(true), duration)
+        return () => clearTimeout(timeout)
     }, [duration])
 
     // This event fires when the CSS transition ends.
@@ -24,6 +24,7 @@ export const FullScreenSplash: React.FC<FullScreenSplashProps> = ({ splashImage,
         // Make sure it's the opacity transition.
         // Move the onFinish inside the if statement to wait until the fade is complete.
         onFinish?.()
+        // If the opacity transition is complete, set visible to false.
         if (event.propertyName === "opacity" && fading) {
             setVisible(false)
         }

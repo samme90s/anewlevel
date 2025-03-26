@@ -20,7 +20,7 @@ export const App: FC = () => {
     // then render your main app once splash is "done."
     return (
         <>
-            <FullScreenSplash splashImage="https://picsum.photos/id/1040/1920/1080" duration={6000} onFinish={() => setSplashDone(true)} />
+            <FullScreenSplash splashImage="https://picsum.photos/id/1040/1920/1080" duration={1000} onFinish={() => setSplashDone(true)} />
             {splashDone && (
                 <Router>
                     <NavBar navLinks={NAV_LINKS} />
