@@ -21,11 +21,10 @@ export const FullScreenSplash: React.FC<FullScreenSplashProps> = ({ splashImage,
     // This event fires when the CSS transition ends.
     // We wait for the opacity transition to complete before removing the element.
     const handleTransitionEnd = (event: React.TransitionEvent<HTMLDivElement>) => {
-        // Make sure it's the opacity transition.
-        // Move the onFinish inside the if statement to wait until the fade is complete.
-        onFinish?.()
         // If the opacity transition is complete, set visible to false.
         if (event.propertyName === "opacity" && fading) {
+            // Use callback here if provided.
+            onFinish?.()
             setVisible(false)
         }
     }

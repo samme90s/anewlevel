@@ -10,7 +10,8 @@
     "private": true,
     "scripts": {
         "dev": "vite",
-        "build": "tsc -b && vite build"
+        "build": "tsc -b && vite build",
+        "serve": "vite preview"
     },
     "dependencies": {
         "react": "^18.3.1",
