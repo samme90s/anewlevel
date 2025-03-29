@@ -1,5 +1,10 @@
-**/*logs/
-**/*node_modules/
-**/*vite/
-**/*dist/
-**/*.tsbuildinfo
+# Logs
+logs/
+
+# Node
+node_modules/
+
+# Build
+vite/
+dist/
+*.tsbuildinfo
