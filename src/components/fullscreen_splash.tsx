@@ -14,12 +14,18 @@ export const FullScreenSplash: React.FC<FullScreenSplashProps> = ({ splashImage,
 
     useEffect(() => {
         // Set a timeout that triggers fading after duration
-        const timeout = setTimeout(() => setFading(true), duration)
+        const timeout = setTimeout(() => {
+            // Only trigger auto-fade if not already manually skipped
+            if (!fading) {
+                setFading(true)
+            }
+        }, duration)
         return () => clearTimeout(timeout)
-    }, [duration])
+        // Add fading to dependency array to potentially clear timeout if manually skipped
+    }, [duration, fading])
 
     // This event fires when the CSS transition ends.
-    // We wait for the opacity transition to complete before removing the element.
+    // Wait for the opacity transition to complete before removing the element.
     const handleTransitionEnd = (event: React.TransitionEvent<HTMLDivElement>) => {
         // If the opacity transition is complete, set visible to false.
         if (event.propertyName === "opacity" && fading) {
@@ -29,35 +35,32 @@ export const FullScreenSplash: React.FC<FullScreenSplashProps> = ({ splashImage,
         }
     }
 
-    // Immediately trigger the fade-out.
-    const handleSkip = () => setFading(true)
+    // Function to immediately trigger the fade-out.
+    const handleSkip = () => {
+        // Prevent setting state if already fading
+        if (!fading) {
+            setFading(true)
+        }
+    }
 
     if (!visible) return null
 
     return (
         <div
+            onClick={handleSkip}
             onTransitionEnd={handleTransitionEnd}
             className={cn(
                 "fixed inset-0 z-50 bg-cover bg-center transition-opacity duration-1000 p-4",
+                "cursor-pointer",
                 {
-                    // When fading is true, the opacity goes to 0, otherwise it remains at 100.
+                    // When fading is true, the opacity goes to 0,
+                    // otherwise it remains at 100.
                     "opacity-0": fading,
                     "opacity-100": !fading,
                 },
                 className,
             )}
             style={{ backgroundImage: `url(${splashImage})` }}
-        >
-            {visible && !fading && (
-                <button
-                    onClick={handleSkip}
-                    className={cn(
-                        "bg-gray-800 text-white px-3 py-2 rounded shadow transition-colors duration-200 hover:bg-gray-700 focus:outline-red-700",
-                    )}
-                >
-                    Skip
-                </button>
-            )}
-        </div>
+        ></div>
     )
 }
