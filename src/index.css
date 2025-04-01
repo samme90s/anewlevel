@@ -19,3 +19,9 @@
     font-weight: 100 800; /* Specify the weight range available */
     font-style: italic;
 }
+
+/* Incase of background image not loading */
+html,
+body {
+    background-color: black;
+}

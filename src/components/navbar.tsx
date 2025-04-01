@@ -20,7 +20,7 @@ export const NavBar: FC<NavBarProps> = ({ navLinks, className }) => {
     const toggleMenu = () => setIsMenuOpen((prev) => !prev)
 
     return (
-        <nav className={cn("bg-neutral-200", className)}>
+        <nav className={cn("bg-black/80", className)}>
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="flex justify-between h-16">
                     <div className="flex">
@@ -29,7 +29,7 @@ export const NavBar: FC<NavBarProps> = ({ navLinks, className }) => {
                             <NavMenu
                                 isMenuOpen={isMenuOpen}
                                 toggleMenu={toggleMenu}
-                                className="bg-neutral-300 hover:bg-neutral-400 hover:text-white"
+                                className="bg-neutral-900 hover:bg-neutral-800 hover:text-white"
                             />
                         </div>
 
@@ -38,7 +38,7 @@ export const NavBar: FC<NavBarProps> = ({ navLinks, className }) => {
 
                         {/* Desktop menu items (hidden on smaller screens) */}
                         <div className="hidden md:ml-6 md:flex md:space-x-4">
-                            <NavLinks links={navLinks} className="hover:bg-neutral-300" />
+                            <NavLinks links={navLinks} className="text-white hover:bg-neutral-900" />
                         </div>
                     </div>
                 </div>
@@ -48,7 +48,7 @@ export const NavBar: FC<NavBarProps> = ({ navLinks, className }) => {
             {isMenuOpen && (
                 <div className="md:hidden" id="mobile-menu">
                     <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-                        <NavLinks links={navLinks} className="block hover:bg-neutral-300" />
+                        <NavLinks links={navLinks} className="block text-white hover:bg-neutral-900" />
                     </div>
                 </div>
             )}

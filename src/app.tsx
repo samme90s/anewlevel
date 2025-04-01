@@ -17,15 +17,16 @@ export const App: FC = () => {
         <>
             {/* Main content always renders in the background */}
             <Router>
-                <div className="flex flex-col min-h-screen font-inter">
+                <div className="flex flex-col min-h-screen font-inter bg-[url('/bg_hres.png')] bg-cover bg-center bg-no-repeat h-full text-gray-100">
                     <NavBar navLinks={NAV_LINKS} />
+
                     <Routes>
                         {NAV_LINKS.map((link) => (
                             <Route key={link.href} path={link.href} element={link.element} />
                         ))}
                     </Routes>
 
-                    <Footer className="bg-neutral-200 text-neutral-800 py-8 px-4 text-center text-sm">
+                    <Footer className="bg-black/80 py-8 px-4 text-center text-sm">
                         <div className="max-w-5xl mx-auto space-y-4">
                             {/* Contact Links */}
                             <div className="flex justify-center items-center flex-wrap gap-x-4 gap-y-2">

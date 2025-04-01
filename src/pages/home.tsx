@@ -7,9 +7,12 @@ interface HomeProps {
 
 export const Home: FC<HomeProps> = ({ className }) => {
     return (
-        <div className={cn("max-w-xl mx-auto p-4", className)}>
-            <h1 className="text-2xl">Home Page</h1>
-            <p>Welcome to the Home page.</p>
+        <div className={cn("p-4", className)}>
+            <div className="mx-auto max-w-2xl">
+                {/* Changed from bg-black bg-opacity-50 */}
+                <h1 className="text-2xl text-white">Home Page</h1>
+                <p className="text-white">Welcome to the Home page.</p>
+            </div>
         </div>
     )
 }
