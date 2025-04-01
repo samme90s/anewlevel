@@ -1,14 +1,14 @@
 import { useEffect, useState } from "react"
 import { cn } from "../lib/utils"
 
-interface FullScreenSplashProps {
+interface SplashProps {
     splashImage: string
     duration?: number
     onFinish?: () => void
     className?: string
 }
 
-export const FullScreenSplash: React.FC<FullScreenSplashProps> = ({ splashImage, duration = 1000, onFinish, className }) => {
+export const Splash: React.FC<SplashProps> = ({ splashImage, duration = 1000, onFinish, className }) => {
     const [fading, setFading] = useState(false)
     const [visible, setVisible] = useState(true)
 

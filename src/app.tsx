@@ -2,11 +2,15 @@ import { FC, useState } from "react"
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom"
 import { NavBar } from "./components/navbar"
 import { Home } from "./pages/home"
-import { FullScreenSplash } from "./components/fullscreen_splash"
+import { Splash } from "./components/splash"
 import { Footer } from "./components/footer"
 import { getGoogleMapsUri } from "./lib/utils"
+import { About } from "./pages/about"
 
-const NAV_LINKS = [{ name: "Home", href: "/", element: <Home className="flex-grow" /> }]
+const NAV_LINKS = [
+    { name: "Home", href: "/", element: <Home className="flex-grow" /> },
+    { name: "About", href: "/about", element: <About className="flex-grow" /> },
+]
 
 export const App: FC = () => {
     const [splashDone, setSplashDone] = useState(false)
@@ -18,7 +22,7 @@ export const App: FC = () => {
             {/* Main content always renders in the background */}
             <Router>
                 <div className="flex flex-col min-h-screen font-inter bg-[url('/bg_hres.png')] bg-cover bg-center bg-no-repeat h-full text-gray-100">
-                    <NavBar navLinks={NAV_LINKS} />
+                    <NavBar navLinks={NAV_LINKS} className="bg-black/90" />
 
                     <Routes>
                         {NAV_LINKS.map((link) => (
@@ -26,7 +30,7 @@ export const App: FC = () => {
                         ))}
                     </Routes>
 
-                    <Footer className="bg-black/80 py-8 px-4 text-center text-sm">
+                    <Footer className="bg-black/90 py-8 px-4 text-center text-sm">
                         <div className="max-w-5xl mx-auto space-y-4">
                             {/* Contact Links */}
                             <div className="flex justify-center items-center flex-wrap gap-x-4 gap-y-2">
@@ -78,7 +82,7 @@ export const App: FC = () => {
 
             {/* The splash overlay is on top until it fades out */}
             {!splashDone && (
-                <FullScreenSplash splashImage="splash_x2.png" duration={1000} onFinish={() => setSplashDone(true)} className="font-inter" />
+                <Splash splashImage="splash_x2.png" duration={1000} onFinish={() => setSplashDone(true)} className="font-inter" />
             )}
         </>
     )
