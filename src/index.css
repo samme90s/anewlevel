@@ -1,8 +1,21 @@
 /* VERSION 4 */
 @import "tailwindcss";
 
-html,
-body {
-    background-color: black;
-    color: white;
+/* Define the theme */
+@theme {
+    --font-inter: "Inter", "sans-serif";
+}
+
+@font-face {
+    font-family: "Inter";
+    src: url("/fonts/inter/inter_variable_font_opsz_wght.ttf") format("truetype");
+    font-weight: 100 800; /* Specify the weight range available */
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Inter";
+    src: url("/fonts/inter/inter_italic_variable_font_opsz_wght.ttf") format("truetype");
+    font-weight: 100 800; /* Specify the weight range available */
+    font-style: italic;
 }

@@ -1,5 +1,5 @@
-// NavBar.tsx
 import { FC, useState } from "react"
+import { cn } from "../lib/utils"
 import { NavMenu } from "./navmenu"
 import { NavLinks, NavLinksVariant } from "./navlinks"
 import { Logo } from "./logo"
@@ -11,15 +11,16 @@ interface NavLink {
 
 interface NavBarProps {
     navLinks: NavLink[]
+    className?: string
 }
 
-export const NavBar: FC<NavBarProps> = ({ navLinks }) => {
+export const NavBar: FC<NavBarProps> = ({ navLinks, className }) => {
     const [isMenuOpen, setIsMenuOpen] = useState(false)
 
     const toggleMenu = () => setIsMenuOpen((prev) => !prev)
 
     return (
-        <nav className="bg-gray-800">
+        <nav className={cn("bg-gray-800", className)}>
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="flex justify-between h-16">
                     <div className="flex">

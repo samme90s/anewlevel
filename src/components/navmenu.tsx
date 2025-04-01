@@ -1,4 +1,3 @@
-// navmenu.tsx
 import { FC } from "react"
 import { cn } from "../lib/utils"
 
