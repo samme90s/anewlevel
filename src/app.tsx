@@ -21,7 +21,7 @@ export const App: FC = () => {
         <>
             {/* Main content always renders in the background */}
             <Router>
-                <div className="flex flex-col min-h-screen font-inter bg-[url('/bg_hres.png')] bg-cover bg-center bg-no-repeat h-full text-gray-100">
+                <div className="flex flex-col min-h-screen font-inter bg-[url('/bg.png')] bg-cover bg-center bg-no-repeat h-full text-gray-100">
                     <NavBar navLinks={NAV_LINKS} className="bg-black/90" />
 
                     <Routes>
@@ -81,9 +81,7 @@ export const App: FC = () => {
             </Router>
 
             {/* The splash overlay is on top until it fades out */}
-            {!splashDone && (
-                <Splash splashImage="splash_x2.png" duration={1000} onFinish={() => setSplashDone(true)} className="font-inter" />
-            )}
+            {!splashDone && <Splash splashImage="splash.png" duration={1000} onFinish={() => setSplashDone(true)} />}
         </>
     )
 }

@@ -16,13 +16,18 @@ export const About: FC<AboutProps> = ({ className }) => {
                         src="/hakan.jpg"
                         alt="Håkan Rosenstam"
                         className={cn(
-                            "float-left", // Keep float for wrapping context
-                            "mr-6", // Right margin for spacing
-                            "mb-2", // Bottom margin for spacing
-                            "[shape-outside:circle(50%)]", // Apply circular shape for text wrapping
+                            // Default (stacked) layout styles (< sm)
+                            "mx-auto",
+                            "mb-4",
+
+                            // Floated layout styles (>= sm)
+                            "sm:float-left",
+                            "sm:mr-6",
+                            "sm:mb-2",
+                            "sm:[shape-outside:circle(50%)]",
                         )}
                     />
-                    <h1 className="text-2xl mb-4">Håkan Rosenstam &mdash; Founder</h1>
+                    <h1 className="text-center text-2xl mb-4 sm:text-left">Håkan Rosenstam &mdash; Founder</h1>
                     <p>
                         Hey, I'm Håkan Rosenstam and here is my life story... Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
                         do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
