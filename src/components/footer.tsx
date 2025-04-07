@@ -8,7 +8,7 @@ interface FooterProps {
 
 export const Footer: FC<FooterProps> = ({ children, className }) => {
     return (
-        <footer className={cn("bg-gray-800 text-white py-4", className)}>
+        <footer className={cn("text-white py-4", className)}>
             <div className="container mx-auto text-center">{children}</div>
         </footer>
     )

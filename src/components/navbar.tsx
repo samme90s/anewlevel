@@ -33,7 +33,7 @@ export const NavBar: FC<NavBarProps> = ({ navLinks, className }) => {
                         </div>
 
                         {/* Logo */}
-                        <Logo src="logo.png" />
+                        <Logo src="/images/logo.png" />
 
                         {/* Desktop menu items (hidden on smaller screens) */}
                         <div className="hidden md:ml-6 md:flex md:space-x-4">

@@ -11,3 +11,7 @@ dist/
 
 # Mac
 .DS_Store
+
+# Large files
+*.mp3
+*.mp4

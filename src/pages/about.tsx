@@ -2,6 +2,7 @@ import { FC } from "react"
 import { cn } from "../lib/utils"
 import { Textbox } from "../components/textbox"
 import { Avatar } from "../components/avatar"
+import d from "../index.json"
 
 interface AboutProps {
     className?: string
@@ -11,9 +12,10 @@ export const About: FC<AboutProps> = ({ className }) => {
     return (
         <div className={cn("p-4", className)}>
             <div className="mx-auto max-w-2xl">
+                <h1 className="font-bold text-4xl mb-4">{d.about.heading}</h1>
                 <Textbox>
                     <Avatar
-                        src="/hakan.jpg"
+                        src="/images/hakan.jpg"
                         alt="Håkan Rosenstam"
                         className={cn(
                             // Default (stacked) layout styles (< sm)
@@ -27,15 +29,15 @@ export const About: FC<AboutProps> = ({ className }) => {
                             "sm:[shape-outside:circle(50%)]",
                         )}
                     />
-                    <h1 className="text-center text-2xl mb-4 sm:text-left">Håkan Rosenstam &mdash; Founder</h1>
-                    <p>
-                        Hey, I'm Håkan Rosenstam and here is my life story... Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
-                        do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-                        ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit
-                        esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui
-                        officia deserunt mollit anim id est laborum. Add more text here if needed to clearly see the circular wrapping
-                        effect, especially below the image.
-                    </p>
+                    <p>{d.about.paragraph_1}</p>
+
+                    <div className="mt-6 clear-both">
+                        {/* Added margin-top and clear-both to handle potential float issues */}
+                        <audio controls src="/audio/about.mp3" className="w-full rounded">
+                            {/* Fallback content for browsers that don't support the audio element */}
+                            Your browser does not support the audio element.
+                        </audio>
+                    </div>
                 </Textbox>
             </div>
         </div>
