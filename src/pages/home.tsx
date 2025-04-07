@@ -1,51 +1,50 @@
+// src/pages/home.tsx
 import { FC } from "react"
 import { cn } from "../lib/utils"
 import { Textbox } from "../components/textbox"
 import { World } from "../components/world"
-import d from "../index.json"
+// Import specific types needed by this component
+import { HomeContent, ScenesContent } from "../types"
 
 interface HomeProps {
     className?: string
+    homeData: HomeContent
+    scenesData: ScenesContent
 }
 
-export const Home: FC<HomeProps> = ({ className }) => {
+export const Home: FC<HomeProps> = ({ className, homeData, scenesData }) => {
+    // Optional: Add check if data is missing, although App.tsx should prevent this
+    if (!homeData || !scenesData) {
+        return <div className={cn("p-4 text-red-500", className)}>Home content data is missing.</div>
+    }
+
     return (
         <div className={cn("relative p-4", className)}>
-            <img src={d.home.avatar_image} alt={d.home.avatar_image_alt} className="absolute top-0 right-14 w-36" />
+            <img src={homeData.avatar_image} alt={homeData.avatar_image_alt} className="absolute top-0 right-14 w-36" />
 
-            <h1 className="font-bold text-6xl mb-2">{d.home.heading}</h1>
-            <h2 className="text-4xl mb-4">{d.home.subheading}</h2>
+            <h1 className="font-bold text-6xl mb-2">{homeData.heading}</h1>
+            <h2 className="text-4xl mb-4">{homeData.subheading}</h2>
 
             <Textbox>
-                <p className="mb-8">{d.home.paragraph_1}</p>
+                <p className="mb-8">{homeData.paragraph_1}</p>
 
                 <div
                     className={cn(
-                        // Default (stacked) layout styles (< sm)
-                        "flex",
-                        "flex-col",
-                        "items-center",
-                        "space-y-2",
-
-                        // Floated layout styles (>= sm)
-                        "sm:flex-row",
-                        "sm:justify-center",
-                        "sm:items-center",
-                        "sm:space-y-0",
-                        "sm:space-x-6",
+                        "flex flex-col items-center space-y-2",
+                        "sm:flex-row sm:justify-center sm:items-center sm:space-y-0 sm:space-x-6",
                     )}
                 >
                     <World
-                        src={d.scenes.world.video}
-                        poster={d.scenes.world.poster}
-                        heading={d.scenes.world.heading}
-                        description={d.scenes.world.description}
-                        href={d.scenes.world.href}
+                        src={scenesData.world.video}
+                        poster={scenesData.world.poster}
+                        heading={scenesData.world.heading}
+                        description={scenesData.world.description}
+                        href={scenesData.world.href}
                         className="w-full h-auto"
                     />
                 </div>
 
-                <p className="mt-8">{d.home.paragraph_2}</p>
+                <p className="mt-8">{homeData.paragraph_2}</p>
             </Textbox>
         </div>
     )
