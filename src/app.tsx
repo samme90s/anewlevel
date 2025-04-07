@@ -42,15 +42,6 @@ export const App: FC = () => {
                                 >
                                     info@anewlevel.nu
                                 </a>
-                                <span className="text-neutral-400 hidden sm:inline">|</span>
-                                <a
-                                    href="tel:+467934088"
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    className="hover:text-blue-600 hover:underline transition-colors duration-200"
-                                >
-                                    +46 79 340 88
-                                </a>
                             </div>
 
                             {/* Address Links */}
