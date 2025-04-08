@@ -4,17 +4,16 @@ import { cn } from "../lib/utils"
 import { Textbox } from "../components/textbox"
 import { World } from "../components/world"
 // Import specific types needed by this component
-import { HomeContent, ScenesContent } from "../types"
+import { HomeContent } from "../types"
 
 interface HomeProps {
     className?: string
     homeData: HomeContent
-    scenesData: ScenesContent
 }
 
-export const Home: FC<HomeProps> = ({ className, homeData, scenesData }) => {
+export const Home: FC<HomeProps> = ({ className, homeData }) => {
     // Optional: Add check if data is missing, although App.tsx should prevent this
-    if (!homeData || !scenesData) {
+    if (!homeData) {
         return <div className={cn("p-4 text-red-500", className)}>Home content data is missing.</div>
     }
 
@@ -35,11 +34,11 @@ export const Home: FC<HomeProps> = ({ className, homeData, scenesData }) => {
                     )}
                 >
                     <World
-                        src={scenesData.world.video}
-                        poster={scenesData.world.poster}
-                        heading={scenesData.world.heading}
-                        description={scenesData.world.description}
-                        href={scenesData.world.href}
+                        src={homeData.world.video}
+                        poster={homeData.world.poster}
+                        heading={homeData.world.heading}
+                        description={homeData.world.description}
+                        href={homeData.world.href}
                         className="w-full h-auto"
                     />
                 </div>

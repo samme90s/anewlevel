@@ -27,12 +27,12 @@ export const About: FC<AboutProps> = ({ className, aboutData }) => {
                         alt={aboutData.image_alt}
                         className={cn("mx-auto mb-4", "sm:float-left sm:mr-6 sm:mb-2 sm:[shape-outside:circle(50%)]")}
                     />
-                    <p>{aboutData.paragraph_1}</p>
+                    <p className="mb-4">{aboutData.paragraph_1}</p>
+                    <p className="mb-4">{aboutData.paragraph_2}</p>
+                    <p>{aboutData.paragraph_3}</p>
 
                     <div className="mt-6 clear-both">
                         <audio controls src="/audio/about.mp3" className="w-full rounded">
-                            {" "}
-                            {/* Kept hardcoded */}
                             Your browser does not support the audio element.
                         </audio>
                     </div>

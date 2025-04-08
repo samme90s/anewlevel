@@ -1,5 +1,8 @@
 // src/types.ts
-
+// Main structure expected in index.json (found in the public dir)
+// ----------------------------
+// FOOTER
+// ----------------------------
 export interface FooterContent {
     email: string
     primary_address: string
@@ -12,17 +15,15 @@ export interface FooterContent {
     facebook_icon: string
 }
 
-export interface SceneData {
+// ----------------------------
+// HOME
+// ----------------------------
+interface WorldData {
     video: string
     poster: string
     heading: string
     description: string
     href: string
-}
-
-export interface ScenesContent {
-    world: SceneData
-    // Add other scenes if they exist
 }
 
 export interface HomeContent {
@@ -32,20 +33,27 @@ export interface HomeContent {
     subheading: string
     paragraph_1: string
     paragraph_2: string
+    world: WorldData
 }
 
+// ----------------------------
+// ABOUT
+// ----------------------------
 export interface AboutContent {
     heading: string
     paragraph_1: string
+    paragraph_2: string
+    paragraph_3: string
     image: string
     image_alt: string
 }
 
-// Main structure expected in index.json
+// ----------------------------
+// APP DATA (MAIN)
+// ----------------------------
 export interface AppData {
     splash_image: string
     home: HomeContent
-    scenes: ScenesContent
     about: AboutContent
     footer: FooterContent
     // Add any other top-level keys from your index.json
