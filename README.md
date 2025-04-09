@@ -1,5 +1,8 @@
 # React webapp
 
+> [!WARNING]
+> Large files such as `.mp4` are not included in the repository.
+
 ## Get started
 
 Navigate the [`package.json`](./package.json) file to see the available scripts.
