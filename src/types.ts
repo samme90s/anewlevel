@@ -31,9 +31,14 @@ export interface HomeContent {
     avatar_image_alt: string
     heading: string
     subheading: string
+    section_1_heading: string
     paragraph_1: string
-    paragraph_2: string
     world: WorldData
+    paragraph_2: string
+    section_2_heading: string
+    image: string
+    image_alt: string
+    paragraph_3: string
 }
 
 // ----------------------------
@@ -41,11 +46,16 @@ export interface HomeContent {
 // ----------------------------
 export interface AboutContent {
     heading: string
+    section_1_heading: string
+    image: string
+    image_alt: string
     paragraph_1: string
     paragraph_2: string
     paragraph_3: string
-    image: string
-    image_alt: string
+    section_2_heading: string
+    image_2: string
+    image_2_alt: string
+    paragraph_4: string
 }
 
 // ----------------------------

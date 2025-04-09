@@ -31,7 +31,7 @@ export const NavLinks: FC<NavLinksProps> = ({
                         key={link.name}
                         to={link.href}
                         // Apply classes conditionally
-                        className={cn("p-2", className, isActive && activeClassName)}
+                        className={cn("p-2 transition-colors duration-200", className, isActive && activeClassName)}
                         // Accessibility: Indicate the current page
                         aria-current={isActive ? "page" : undefined}
                     >

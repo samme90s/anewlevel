@@ -7,5 +7,5 @@ interface TextboxProps {
 }
 
 export const Textbox: FC<TextboxProps> = ({ children, className }) => {
-    return <div className={cn("backdrop-blur-sm rounded-4xl shadow-lg p-4", className)}>{children}</div>
+    return <div className={cn("backdrop-blur-sm rounded-4xl shadow-lg px-6 py-8", className)}>{children}</div>
 }

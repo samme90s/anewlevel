@@ -16,22 +16,32 @@
         "avatar_image_alt": "Avatar image",
         "heading": "A New Level",
         "subheading": "Explore the Metaverse",
+        "section_1_heading": "Metaverse",
         "paragraph_1": "Dive into a digital realm where reality blurs and imagination thrives. The metaverse awaits your exploration and creativity!",
-        "paragraph_2": "The metaverse concept describes a potential next phase for the internet using shared, persistent 3D spaces to enable a stronger sense of presence online. This approach could offer practical benefits like improved remote teamwork, effective learning through simulation, new forms of digital entertainment and commerce, and better accessibility tools. The overall aim is more functional and interactive online experiences.",
         "world": {
             "video": "/video/metaverse.mp4",
             "poster": "/image/splash.png",
             "heading": "Join us!",
             "description": "Explore our metaverses and discover the endless possibilities they offer. From virtual conferences to immersive experiences, our metaverses are designed to elevate your digital interactions.",
             "href": "https://webgl.virtway.com/wpgjduos"
-        }
+        },
+        "paragraph_2": "The metaverse concept describes a potential next phase for the internet using shared, persistent 3D spaces to enable a stronger sense of presence online. This approach could offer practical benefits like improved remote teamwork, effective learning through simulation, new forms of digital entertainment and commerce, and better accessibility tools. The overall aim is more functional and interactive online experiences.",
+        "section_2_heading": "Our Clients",
+        "image": "/images/clients.png",
+        "image_alt": "Clients",
+        "paragraph_3": "We are proud to have collaborated with a diverse range of clients, each bringing their unique vision and goals to the metaverse. Our partnerships span various industries, showcasing the versatility and potential of virtual experiences. From corporate events to educational initiatives, our clients have embraced the metaverse as a powerful tool for engagement and innovation."
     },
     "about": {
-        "heading": "Håkan Rosenstam — CEO",
+        "heading": "About Us",
+        "section_1_heading": "Håkan Rosenstam — CEO",
+        "image": "/images/hakan.jpg",
+        "image_alt": "Håkan Rosenstam",
         "paragraph_1": "Welcome to A New Level!! Pioneering the Future of Reality! Are you prepared to catapult your business into the next era? Step into a virtual world where conferences, meetings, lectures, product launches, conserts, musicshows, talkshows and customer engagements transcend physical limitations, fostering unparalleled connections and experiences.",
         "paragraph_2": "Our innovative approach doesn't just blur the line between the physical and digital worlds – it obliterates it, opening doors to boundless opportunities for collaboration, creativity, and innovation. Embrace the future alongside industry giants we lead the charge into a new frontier of digital interaction. With luminaries such as Linda U Johansson (top 100 world wide in Metaverse) by our side, we're not just shaping the future – we're defining it.",
         "paragraph_3": "Join us on this journey to redefine reality, where distance is no longer a barrier, and where every idea, every innovation, and every connection propels us further into the limitless expanse of tomorrow. Seize the opportunity to be a part of this groundbreaking movement with A New Level. Welcome to the future – Welcome into A New Level where possibilities are infinite, and the only limit is your imagination!",
-        "image": "/images/hakan.jpg",
-        "image_alt": "Håkan Rosenstam"
+        "section_2_heading": "Advisory Board",
+        "image_2": "/images/advisory_board.png",
+        "image_2_alt": "Advisory Board",
+        "paragraph_4": "Our advisory board is a powerhouse of expertise and innovation, guiding us as we navigate the ever-evolving landscape of the metaverse. With a diverse range of backgrounds and experiences, our advisors bring invaluable insights to our mission of redefining reality."
     }
 }

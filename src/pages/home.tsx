@@ -25,25 +25,35 @@ export const Home: FC<HomeProps> = ({ className, homeData }) => {
             <h2 className="text-4xl mb-4">{homeData.subheading}</h2>
 
             <Textbox>
-                <p className="mb-8">{homeData.paragraph_1}</p>
+                <section>
+                    {homeData.section_1_heading && <h2 className="font-bold text-2xl mb-4">{homeData.section_1_heading}</h2>}
 
-                <div
-                    className={cn(
-                        "flex flex-col items-center space-y-2",
-                        "sm:flex-row sm:justify-center sm:items-center sm:space-y-0 sm:space-x-6",
-                    )}
-                >
-                    <World
-                        src={homeData.world.video}
-                        poster={homeData.world.poster}
-                        heading={homeData.world.heading}
-                        description={homeData.world.description}
-                        href={homeData.world.href}
-                        className="w-full h-auto"
-                    />
-                </div>
+                    <p className="mb-8">{homeData.paragraph_1}</p>
 
-                <p className="mt-8">{homeData.paragraph_2}</p>
+                    <div
+                        className={cn(
+                            "flex flex-col items-center space-y-2",
+                            "sm:flex-row sm:justify-center sm:items-center sm:space-y-0 sm:space-x-6",
+                        )}
+                    >
+                        <World
+                            src={homeData.world.video}
+                            poster={homeData.world.poster}
+                            heading={homeData.world.heading}
+                            description={homeData.world.description}
+                            href={homeData.world.href}
+                            className="w-full h-auto"
+                        />
+                    </div>
+
+                    <p className="mt-8">{homeData.paragraph_2}</p>
+                </section>
+
+                <section className="mt-8">
+                    {homeData.section_2_heading && <h2 className="font-bold text-2xl mb-4">{homeData.section_2_heading}</h2>}
+                    <img src={homeData.image} alt={homeData.image_alt} className="my-4 w-full rounded" />
+                    <p>{homeData.paragraph_3}</p>
+                </section>
             </Textbox>
         </div>
     )
