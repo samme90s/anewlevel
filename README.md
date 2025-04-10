@@ -3,6 +3,13 @@
 > [!WARNING]
 > Large files such as `.mp4` are not included in the repository.
 
+## Distribution
+
+A built version can be found under [**Releases**](https://github.com/samme90s/anewlevel/releases)
+where the `dist.zip` file contains the production build of the project.
+
+You can also build the project yourself by following the instructions below.
+
 ## Get started
 
 Navigate the [`package.json`](./package.json) file to see the available scripts.
