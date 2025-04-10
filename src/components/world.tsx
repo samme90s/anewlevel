@@ -1,66 +1,87 @@
 import { FC } from "react"
+// Utility for merging CSS classes.
 import { cn } from "../lib/utils"
 
+// Defines the props accepted by the World component.
 interface WorldProps {
+    // Video source URL.
     src: string
+    // Poster image URL (placeholder for video).
     poster: string
+    // Main text heading displayed over the video.
     heading: string
+    // Description text displayed below the heading.
     description: string
+    // Target URL for the link.
     href: string
+    // Optional CSS class names for custom styling.
     className?: string
 }
 
+// The World component renders a clickable card with a video background.
+// It displays a heading, description, and links to a specified URL.
 export const World: FC<WorldProps> = ({ src, poster, heading, description, href, className }) => {
     return (
+        // Main container is an anchor tag making the whole component clickable.
         <a
-            href={href}
-            target="_blank"
-            rel="noopener noreferrer"
+            href={href} // Link destination.
+            target="_blank" // Open link in new tab.
+            rel="noopener noreferrer" // Security measure for target blank.
             className={cn(
-                // Base styles for the card/link
+                // Base styling for card appearance: rounded, shadow, hover effect.
                 "block rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow duration-300",
-                // --- Positioning Context ---
-                "relative", // Makes this the container for absolutely positioned children
+                // Establishes positioning context for absolute children.
+                "relative",
+                // Fixed height for the card.
                 "h-64",
+                // Merges optional custom classes.
                 className,
             )}
         >
-            {/* --- Video Background --- */}
+            {/* Video element for the background. */}
             <video
-                // Add key={src} if the video source might change dynamically for the same component instance
-                // This forces React to treat it as a new element, ensuring the correct video loads.
+                // Using src as key forces re-render if video source changes.
                 key={src}
                 src={src}
-                autoPlay // Start playing automatically
-                muted // **Required** for autoplay in most modern browsers
-                loop // Loop the video
-                playsInline // Important for inline playback on mobile (especially iOS)
-                poster={poster} // Optional: but ensures a placeholder image is shown before the video loads
+                autoPlay // Plays automatically on load.
+                muted // Required by browsers for autoplay.
+                loop // Repeats the video.
+                playsInline // Needed for inline playback on mobile devices.
+                poster={poster} // Displays image while video loads.
                 className={cn(
-                    "absolute inset-0 w-full h-full", // Position absolutely to fill the container
-                    "object-cover", // Cover the area, cropping if necessary, like background-size: cover
-                    "z-0", // Ensure video is at the bottom stack layer
+                    // Positions video to fill the container.
+                    "absolute inset-0 w-full h-full",
+                    // Scales video to cover area, may crop.
+                    "object-cover",
+                    // Places video at the bottom layer (behind overlay and text).
+                    "z-0",
                 )}
             >
-                {/* Fallback text if browser doesn't support video tag */}
+                {/* Fallback text for browsers not supporting video. */}
                 Your browser does not support the video tag.
             </video>
 
-            {/* --- Overlay for Text Readability --- */}
+            {/* Semi-transparent overlay to improve text readability over the video. */}
             <div
                 className={cn(
-                    // Cover the entire container
+                    // Covers the entire container.
                     "absolute inset-0",
+                    // Creates a vertical gradient from black to transparent.
                     "bg-gradient-to-t from-black via-black/70 to-transparent",
+                    // Places overlay above video, below text.
                     "z-10",
                 )}
-                aria-hidden="true" // Hide decorative overlay from screen readers
+                // Hides this decorative element from screen readers.
+                aria-hidden="true"
             />
 
-            {/* --- Text Content --- */}
+            {/* Container for the text content, centered over the video/overlay. */}
             <div className="relative w-full h-full flex flex-col justify-center items-center p-6 text-center z-20">
+                {/* Main heading text. */}
                 <h3 className="text-2xl font-semibold mb-2 text-white drop-shadow-md">{heading}</h3>
+                {/* Description text. */}
                 <p className="text-gray-200 drop-shadow-md">{description}</p>
+                {/* Visual cue indicating this is a link. */}
                 <span className="mt-4 text-sm text-blue-500 font-bold transition-colors">Visit &rarr;</span>
             </div>
         </a>

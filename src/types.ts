@@ -1,5 +1,9 @@
 // src/types.ts
-// Main structure expected in index.json (found in the public dir)
+
+// This file defines TypeScript interfaces for the expected structure
+// of the data used in the application.
+// Main structure expected in index.json (found in the public directory).
+
 // ----------------------------
 // FOOTER
 // ----------------------------
