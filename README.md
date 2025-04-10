@@ -6,7 +6,8 @@
 ## Distribution
 
 A built version can be found under [**Releases**](https://github.com/samme90s/anewlevel/releases)
-where the `dist.zip` file contains the production build of the project.
+where the [`dist.zip`](https://github.com/samme90s/anewlevel/releases/download/v.0.1.0/dist.zip)
+file contains the production build of the project.
 
 You can also build the project yourself by following the instructions below.
 
