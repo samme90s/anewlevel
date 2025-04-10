@@ -38,11 +38,13 @@ export const About: FC<AboutProps> = ({ aboutData, className }) => {
                     <p className="mb-4">{aboutData.paragraph_2}</p>
                     <p>{aboutData.paragraph_3}</p>
 
-                    <div className="mt-6 clear-both">
-                        <audio controls src="/audio/about.mp3" className="w-full rounded">
-                            Your browser does not support the audio element.
-                        </audio>
-                    </div>
+                    {aboutData.audio && (
+                        <div className="mt-6 clear-both">
+                            <audio controls src={aboutData.audio} className="w-full rounded">
+                                Your browser does not support the audio element.
+                            </audio>
+                        </div>
+                    )}
                 </section>
 
                 <section className="mt-12">
