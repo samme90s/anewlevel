@@ -45,7 +45,10 @@ export interface HomeContent {
 // ABOUT
 // ----------------------------
 export interface AboutContent {
+    avatar_image: string
+    avatar_image_alt: string
     heading: string
+    subheading: string
     section_1_heading: string
     image: string
     image_alt: string
@@ -55,6 +58,8 @@ export interface AboutContent {
     section_2_heading: string
     image_2: string
     image_2_alt: string
+    image_3: string
+    image_3_alt: string
     paragraph_4: string
 }
 

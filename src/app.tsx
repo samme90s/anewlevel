@@ -60,12 +60,12 @@ export const App: FC = () => {
         {
             name: "Home",
             href: "/",
-            element: <Home className="flex-grow max-w-2xl mx-auto" homeData={appData.home} />,
+            element: <Home className="flex-grow max-w-4xl mx-auto" homeData={appData.home} />,
         },
         {
             name: "About",
             href: "/about",
-            element: <About className="flex-grow max-w-2xl mx-auto" aboutData={appData.about} />,
+            element: <About className="flex-grow max-w-4xl mx-auto" aboutData={appData.about} />,
         },
     ]
 

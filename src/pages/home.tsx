@@ -7,11 +7,11 @@ import { World } from "../components/world"
 import { HomeContent } from "../types"
 
 interface HomeProps {
-    className?: string
     homeData: HomeContent
+    className?: string
 }
 
-export const Home: FC<HomeProps> = ({ className, homeData }) => {
+export const Home: FC<HomeProps> = ({ homeData, className }) => {
     // Optional: Add check if data is missing, although App.tsx should prevent this
     if (!homeData) {
         return <div className={cn("p-4 text-red-500", className)}>Home content data is missing.</div>
@@ -21,8 +21,8 @@ export const Home: FC<HomeProps> = ({ className, homeData }) => {
         <div className={cn("relative p-4", className)}>
             <img src={homeData.avatar_image} alt={homeData.avatar_image_alt} className="absolute top-0 right-14 w-36" />
 
-            <h1 className="font-bold text-6xl mb-2">{homeData.heading}</h1>
-            <h2 className="text-4xl mb-4">{homeData.subheading}</h2>
+            <h1 className="font-bold text-6xl mb-2 w-4/5">{homeData.heading}</h1>
+            <h2 className="text-4xl mb-4 w-4/5">{homeData.subheading}</h2>
 
             <Textbox>
                 <section>
@@ -49,7 +49,7 @@ export const Home: FC<HomeProps> = ({ className, homeData }) => {
                     <p className="mt-8">{homeData.paragraph_2}</p>
                 </section>
 
-                <section className="mt-8">
+                <section className="mt-12">
                     {homeData.section_2_heading && <h2 className="font-bold text-2xl mb-4">{homeData.section_2_heading}</h2>}
                     <img src={homeData.image} alt={homeData.image_alt} className="my-4 w-full rounded" />
                     <p>{homeData.paragraph_3}</p>

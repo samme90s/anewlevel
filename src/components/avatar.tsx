@@ -20,6 +20,8 @@ export const Avatar: FC<AvatarProps> = ({ src, alt, className }) => {
                 "object-cover", // Scale image correctly without distortion
                 "object-top", // Crop focusing on the top
                 "shadow-lg", // Add shadow
+                "border-2", // Add border
+                "border-black", // Black border
 
                 // Pass through any additional classes for layout adjustments
                 className,
